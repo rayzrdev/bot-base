@@ -10,7 +10,6 @@ Just fork the repo, clone your newly made fork, and copy the `config-example.jso
 
 It would be appreciated if you would provide a link back to this original version though, as well as an optional link to [Rayzr's Discord server](https://discord.io/rayzrdevofficial).
 
-
 ## Join Me
 
 [![Discord Badge](https://github.com/Rayzr522/ProjectResources/raw/master/RayzrDev/badge-small.png)](https://discord.io/rayzrdevofficial)

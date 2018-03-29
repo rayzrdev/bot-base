@@ -1,7 +1,7 @@
 {
   "name": "bot-base",
   "version": "1.0.0",
-  "description": "A simple bot base written with Discord.js",
+  "description": "A simple Discord.js bot base.",
   "main": "bot.js",
   "repository": "https://github.com/RayzrDev/bot-base.git",
   "author": "Rayzr522 <rayzr522@gmail.com>",

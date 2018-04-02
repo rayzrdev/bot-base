@@ -4,7 +4,7 @@
 
 This is an extremely simple Discord.js bot base with a config loader / validator, a command handler, and a simple ping command. All code should be pretty self-explanatory.
 
-## Hacking on the Source
+## Hack the Source, Luke!
 
 Just fork the repo, clone your newly made fork, and copy the `config-example.json` file that is provided. It should be pretty simple to make your own commands, expand the command handler, etc.
 

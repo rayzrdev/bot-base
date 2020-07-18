@@ -16,6 +16,28 @@ It should be pretty simple to make your own commands, expand the command handler
 
 It would be appreciated if you would provide a link back to this original version though, as well as an optional link to [Rayzr's Discord server](https://rayzr.dev/join).
 
+## Building Docker Images
+
+You can pretty easily build a docker image out of your bot using the provided `Dockerfile` and `Dockerfile-native`. To build your docker image, run the following inside your project:
+
+```bash
+docker build . -t myname/my-cool-bot
+```
+
+If you have native dependencies that require a full node environment to install, either replace `Dockerfile` with `Dockerfile-native` or run the following:
+
+```bash
+docker build -f Dockerfile-native . -t myname/my-cool-bot
+```
+
+Then to run the built docker image, attach to its virtual terminal, and read from your `.env` file, run the following:
+
+```bash
+docker run -it --env-file .env myname/my-cool-bot
+```
+
+Hit <kbd>^C</kbd> to kill the bot while it's running. See more about running docker images on the official docs for [docker run](https://docs.docker.com/engine/reference/commandline/run/).
+
 ## Join Me
 
 [![Discord Badge](https://github.com/Rayzr522/ProjectResources/raw/master/RayzrDev/badge-small.png)](https://rayzr.dev/join)

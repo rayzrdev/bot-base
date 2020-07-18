@@ -1,0 +1,10 @@
+Dockerfile
+Dockerfile-native
+.env
+.dockerignore
+.gitignore
+
+*.log
+
+node_modules
+.git

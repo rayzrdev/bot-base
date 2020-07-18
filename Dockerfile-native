@@ -1,0 +1,20 @@
+# Install dependencies with full node 12 image that has node-gyp build support
+FROM node:12 as builder
+
+WORKDIR /usr/src/app
+
+COPY package.json /usr/src/app/package.json
+COPY package-lock.json /usr/src/app/package-lock.json
+
+RUN npm ci --only=prod
+
+# Run with alpine image that has only runtime support
+FROM node:12-alpine as runtime
+
+WORKDIR /usr/src/app
+
+COPY --from=builder /usr/src/app .
+COPY . /usr/src/app
+
+CMD [ "npm", "start" ]
+

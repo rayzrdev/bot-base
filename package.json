@@ -11,6 +11,10 @@
     "dotenv": "^8.2.0"
   },
   "scripts": {
-    "start": "node ."
+    "start": "node .",
+    "lint": "eslint bot.js commands"
+  },
+  "devDependencies": {
+    "eslint": "^7.4.0"
   }
 }

@@ -4,34 +4,32 @@ const fs = require('fs');
 // Only import the Client class from Discord.js
 const { Client } = require('discord.js');
 
+require('dotenv').config();
+
 // Super fancy config loader/validator
 const config = (() => {
-    // Make sure the config file exists
-    if (!fs.existsSync('config.json')) {
-        // They must not have copied the config-example.json file yet,
-        // so just exit
-        console.error('Please copy the config-example.json file and rename it to config.json, filling out all required fields.');
-        process.exit(1);
-    }
-
-    let json;
-    try {
-        // Parse the JSON file
-        json = JSON.parse(fs.readFileSync('config.json').toString());
-    } catch (error) {
-        // Catch any parser errors or read errors and exit
-        console.error(`Failed to load/parse the config.json file: ${error}`);
-        process.exit(1);
-    }
+    const token = process.env.BOT_TOKEN;
 
     // If there isn't a token, the bot won't start, but if there is then
     // we want to make sure it's a valid bot token
-    if (json.token && !/^[a-zA-Z0-9_\.\-]{59}$/.test(json.token)) {
-        console.error('The token you entered is invalid! Please carefully re-enter the token and restart the bot.');
+    if (!token) {
+        console.error('Missing BOT_TOKEN environment variable');
         process.exit(1);
     }
 
-    return json;
+    if (!/^[a-zA-Z0-9_\.\-]{59}$/.test(token)) {
+        console.error('Invalid bot token!')
+        process.exit(1);
+    }
+
+    const prefix = process.env.BOT_PREFIX;
+
+    if (!prefix) {
+        console.error('Missing BOT_PREFIX environment variable');
+        process.exit(1);
+    }
+
+    return { token, prefix };
 })();
 
 // Store the commands in a Map (slightly better than a raw object)

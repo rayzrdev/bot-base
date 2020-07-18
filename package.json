@@ -2,7 +2,7 @@
   "name": "bot-base",
   "version": "1.0.0",
   "description": "A simple Discord.js bot base.",
-  "main": "bot.js",
+  "main": "src/bot.js",
   "repository": "https://github.com/RayzrDev/bot-base.git",
   "author": "Rayzr522 <rayzr522@gmail.com>",
   "license": "MIT",
@@ -12,7 +12,7 @@
   },
   "scripts": {
     "start": "node .",
-    "lint": "eslint bot.js commands"
+    "lint": "eslint src"
   },
   "devDependencies": {
     "eslint": "^7.4.0"

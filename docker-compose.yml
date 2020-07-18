@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+    bot-1:
+        image: myname/my-cool-bot:latest
+        environment:
+            BOT_TOKEN: "some_cool_token"
+            # Have to use $$ here because $ is a special character, this is the same as a "$" prefix
+            BOT_PREFIX: "$$"
+    bot-2:
+        image: myname/my-cool-bot:latest
+        environment:
+            BOT_TOKEN: "some_other_cool_token"
+            BOT_PREFIX: "!"

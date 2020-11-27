@@ -2,7 +2,7 @@
 const path = require('path')
 const fs = require('fs')
 // Only import the Client class from Discord.js
-const { Client } = require('discord.js')
+const { Client, Intents } = require('discord.js')
 
 require('dotenv').config()
 
@@ -34,8 +34,13 @@ const config = (() => {
 
 // Store the commands in a Map (slightly better than a raw object)
 const commands = new Map()
+// Define gateway intents
+const intents = new Intents([
+    Intents.NON_PRIVILEGED, // include all non-privileged intents, would be better to specify which ones you actually need
+    "GUILD_MEMBERS", // lets you request guild members
+]);
 // Create the client
-const bot = new Client({ disableEveryone: true })
+const bot = new Client({ partials: ['MESSAGE', 'CHANNEL', 'REACTION'], ws: { intents }, fetchAllMembers: true, disableEveryone: true })
 
 // Store the config and commands on the bot variable so as to make them
 // easily accessible in commands and other files
@@ -67,7 +72,7 @@ fs.readdirSync(path.resolve(__dirname, 'commands'))
 
 bot.on('ready', () => {
     console.log(`Logged in as ${bot.user.tag} (ID: ${bot.user.id})`)
-    bot.generateInvite([
+    bot.generateInvite({ permissions: [
         'SEND_MESSAGES',
         'MANAGE_MESSAGES',
         // Here are some other common permissions you might want to include:
@@ -88,7 +93,7 @@ bot.on('ready', () => {
         // 'MOVE_MEMBERS',
         // 'MUTE_MEMBERS',
         // 'DEAFEN_MEMBERS',
-    ]).then(invite => {
+    ]}).then(invite => {
         // After generating the invite, log it to the console
         console.log(`Click here to invite the bot to your guild:\n${invite}`)
     })

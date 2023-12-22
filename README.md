@@ -14,7 +14,7 @@ This is an extremely simple Discord.js bot base with a config loader / validator
 
 It should be pretty simple to make your own commands, expand the command handler, etc.
 
-It would be appreciated if you would provide a link back to this original version though, as well as an optional link to [Rayzr's Discord server](https://rayzr.dev/join).
+It would be appreciated if you would provide a link back to this original version though.
 
 ## Building docker images
 
@@ -55,7 +55,3 @@ docker-compose stop
 # to remove the containers:
 docker-compose down
 ```
-
-## Join Me
-
-[![Discord Badge](https://github.com/Rayzr522/ProjectResources/raw/master/RayzrDev/badge-small.png)](https://rayzr.dev/join)
